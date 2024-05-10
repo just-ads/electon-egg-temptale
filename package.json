@@ -1,0 +1,18 @@
+{
+  "name": "electon-temptale",
+  "main": "main.js",
+  "scripts": {
+    "dev": "ee-bin dev",
+    "dev-electron": "ee-bin dev --serve=electron",
+    "re-sqlite": "electron-rebuild -f -w better-sqlite3"
+  },
+  "dependencies": {
+    "ee-core": "^2.9.2",
+    "electron-rebuild": "^3.2.9",
+    "electron-updater": "^6.1.8"
+  },
+  "devDependencies": {
+    "ee-bin": "^1.5.0",
+    "electron": "^30.0.3"
+  }
+}
