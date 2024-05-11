@@ -1,18 +1,55 @@
 {
   "name": "electon-temptale",
+  "version": "0.0.1",
   "main": "main.js",
   "scripts": {
     "dev": "ee-bin dev",
+    "dev-frontend": "ee-bin dev --serve=frontend",
     "dev-electron": "ee-bin dev --serve=electron",
-    "re-sqlite": "electron-rebuild -f -w better-sqlite3"
+    "dev-go": "ee-bin dev --serve=go",
+    "dev-python": "ee-bin exec --cmds=python",
+    "build-frontend": "ee-bin build --cmds=frontend && ee-bin move --flag=frontend_dist",
+    "build-go-w": "ee-bin move --flag=go_static,go_config,go_package,go_images && ee-bin build --cmds=go_w",
+    "build-go-m": "ee-bin move --flag=go_static,go_config,go_package,go_images && ee-bin build --cmds=go_m",
+    "build-go-l": "ee-bin move --flag=go_static,go_config,go_package,go_images && ee-bin build --cmds=go_l",
+    "build-python": "ee-bin build --cmds=python && ee-bin move --flag=python_dist",
+    "start": "ee-bin start",
+    "move": "ee-bin move --flag=go_static,go_config,go_package,go_images",
+    "rd": "ee-bin move --flag=frontend_dist",
+    "encrypt": "ee-bin encrypt",
+    "clean": "ee-bin clean",
+    "icon": "ee-bin icon",
+    "reload": "nodemon --config ./electron/config/nodemon.json",
+    "rebuild": "electron-rebuild",
+    "re-sqlite": "electron-rebuild -f -w better-sqlite3",
+    "build-w": "electron-builder --config=./electron/config/builder.json -w=nsis --x64",
+    "build-w-32": "electron-builder --config=./electron/config/builder.json -w=nsis --ia32",
+    "build-w-64": "electron-builder --config=./electron/config/builder.json -w=nsis --x64",
+    "build-w-arm64": "electron-builder --config=./electron/config/builder.json -w=nsis --arm64",
+    "build-we": "electron-builder --config=./electron/config/builder.json -w=portable --x64",
+    "build-wz": "electron-builder --config=./electron/config/builder.json -w=7z --x64",
+    "build-wz-32": "electron-builder --config=./electron/config/builder.json -w=7z --ia32",
+    "build-wz-64": "electron-builder --config=./electron/config/builder.json -w=7z --x64",
+    "build-wz-arm64": "electron-builder --config=./electron/config/builder.json -w=7z --arm64",
+    "build-m": "electron-builder --config=./electron/config/builder.json -m",
+    "build-m-arm64": "electron-builder --config=./electron/config/builder.json -m --arm64",
+    "build-l": "electron-builder --config=./electron/config/builder.json -l=deb --x64",
+    "build-l-32": "electron-builder --config=./electron/config/builder.json -l=deb --ia32",
+    "build-l-64": "electron-builder --config=./electron/config/builder.json -l=deb --x64",
+    "build-l-arm64": "electron-builder --config=./electron/config/builder.json -l=deb --arm64",
+    "build-l-armv7l": "electron-builder --config=./electron/config/builder.json -l=deb --armv7l",
+    "build-lr-64": "electron-builder --config=./electron/config/builder.json -l=rpm --x64",
+    "build-lp-64": "electron-builder --config=./electron/config/builder.json -l=pacman --x64",
+    "postinstall": "electron-builder install-app-deps"
   },
   "dependencies": {
     "ee-core": "^2.9.2",
-    "electron-rebuild": "^3.2.9",
     "electron-updater": "^6.1.8"
   },
   "devDependencies": {
     "ee-bin": "^1.5.0",
-    "electron": "^30.0.3"
+    "electron": "^30.0.3",
+    "electron-builder": "^24.13.3",
+    "electron-rebuild": "^3.2.9"
   }
 }

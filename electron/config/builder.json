@@ -1,7 +1,7 @@
 {
   "productName": "ee",
   "appId": "com.electron.ee",
-  "copyright": "© 2023 哆啦好梦 Technology Co., Ltd.",
+  "copyright": "ADS",
   "directories": {
     "output": "out"
   },
